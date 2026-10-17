@@ -21,7 +21,7 @@ model = keras.models.load_model('model_cifar10.h5')
 uploaded_file = st.file_uploader("Pilih gambar...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
+    image = Image.open(uploaded_file).convert('RGB')
     st.image(image, caption="Gambar yang diupload")
 
     if st.button("Prediksi"):
